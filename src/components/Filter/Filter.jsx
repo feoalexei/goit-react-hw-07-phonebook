@@ -9,15 +9,12 @@ const Filter = () => {
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
-  console.log(filteredName);
-  console.log(contacts);
-
   const applyFilter = e => dispatch(filterAction(e.target.value));
 
   return (
     contacts.length > 0 && (
       <StyledFilter>
-        Find contact by name
+        Find contact by name:
         <input type="text" value={filteredName} onChange={applyFilter} />
       </StyledFilter>
     )

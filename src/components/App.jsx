@@ -4,8 +4,12 @@ import ContactList from './ContactList';
 import Filter from './Filter';
 import { Box } from './Box';
 import { AppContainer } from './App.styled';
+import { useSelector } from 'react-redux';
+import { selectIsLoading } from 'redux/contacts/contacts-selector';
+import Loader from './Loader';
 
 export const App = () => {
+  const isLoading = useSelector(selectIsLoading);
   return (
     <AppContainer>
       <Box
@@ -25,7 +29,9 @@ export const App = () => {
         borderRadius={4}
         display="flex"
         flexDirection="column"
+        position="relative"
       >
+        {isLoading && <Loader />}
         <h2>Contacts</h2>
         <Filter />
         <ContactList />

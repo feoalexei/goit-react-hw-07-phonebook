@@ -6,23 +6,38 @@ const StyledContact = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-
-  & .contactName {
-    font-size: ${p => p.theme.fontSizes.l}px;
-  }
+  font-size: ${p => p.theme.fontSizes.l}px;
+`;
+const Name = styled.p`
+  font-size: ${p => p.theme.fontSizes.l}px;
 `;
 
 const ContactIcon = styled(FaUserCircle)`
-  font-size: ${p => p.theme.fontSizes.l}px;
+  font-size: ${p => p.theme.fontSizes.xl}px;
   color: #c74936;
   margin-right: ${p => p.theme.space[3]}px;
-  margin-bottom: -3px;
+  margin-bottom: -5px;
+`;
+
+const Dots = styled.div`
+  flex: 1;
+  align-self: end;
+  margin-left: ${p => p.theme.space[3]}px;
+  margin-right: ${p => p.theme.space[3]}px;
+  margin-bottom: ${p => p.theme.space[3]}px;
+  border-bottom: 3px dotted gray;
+`;
+
+const Number = styled.span`
+  margin-left: auto;
+  margin-right: ${p => p.theme.space[4]}px;
 `;
 
 const DeleteBtn = styled.button`
   width: max-content;
   background-color: #087582;
   color: #fff;
+  font-size: ${p => p.theme.fontSizes.m}px;
   border: none;
   border-radius: ${p => p.theme.radii.small};
   padding: 7px 12px;
@@ -34,4 +49,4 @@ const DeleteBtn = styled.button`
   }
 `;
 
-export { StyledContact, ContactIcon, DeleteBtn };
+export { StyledContact, ContactIcon, Name, Number, Dots, DeleteBtn };

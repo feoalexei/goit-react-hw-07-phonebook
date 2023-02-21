@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { Box } from '../Box';
 import { StyledContactForm, AddBtn } from './ContactForm.styled';
-import { nanoid } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectContacts } from 'redux/contacts/contacts-selector';
-import { addContactAction } from 'redux/contacts/contacts-slice';
+import { addContactThunk } from 'redux/contacts/contacts-thunk';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -21,7 +20,6 @@ const ContactForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const newContact = {
-      id: nanoid(),
       name,
       number,
     };
@@ -32,7 +30,7 @@ const ContactForm = () => {
 
     if (nameAlreadyExists) return alert(`${name} is already in contacts`);
 
-    dispatch(addContactAction(newContact));
+    dispatch(addContactThunk(newContact));
     setName('');
     setNumber('');
   };
